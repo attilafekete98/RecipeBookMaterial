@@ -1,0 +1,12 @@
+<mat-toolbar color="primary" class="navbar">
+  <div routerLink="/" class="link">Recipe Book</div>
+  <div>
+    <button mat-button routerLink="/recipes" class="link">Recipes</button>
+    <button mat-button routerLink="/shopping-list" class="link">Shopping list</button>
+    <button mat-button class="link" [mat-menu-trigger-for]="manageMenu">Manage</button>
+    <mat-menu #manageMenu>
+      <button mat-menu-item>Save data</button>
+      <button mat-menu-item>Fetch data</button>
+    </mat-menu>
+  </div>
+</mat-toolbar>
