@@ -19,6 +19,7 @@ import { MatCardModule } from '@angular/material/card';
 import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
 import { ShoppingListService } from './shopping-list/shoppin-list.service';
 import { RecipeService } from './recipes/recipe.service';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { RecipeService } from './recipes/recipe.service';
     MatToolbarModule,
     MatButtonModule,
     MatMenuModule,
-    MatCardModule
+    MatCardModule,
+    MatListModule
   ],
   providers: [ShoppingListService, RecipeService],
   bootstrap: [AppComponent]
