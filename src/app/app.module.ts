@@ -15,6 +15,10 @@ import { AppRoutingModule } from './app-routing-module';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatCardModule } from '@angular/material/card';
+import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
+import { ShoppingListService } from './shopping-list/shoppin-list.service';
+import { RecipeService } from './recipes/recipe.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,8 @@ import { MatMenuModule } from '@angular/material/menu';
     RecipeListComponent,
     RecipeEditComponent,
     RecipeStartComponent,
-    HeaderComponent
+    HeaderComponent,
+    RecipeItemComponent
   ],
   imports: [
     BrowserModule,
@@ -35,9 +40,10 @@ import { MatMenuModule } from '@angular/material/menu';
     AppRoutingModule,
     MatToolbarModule,
     MatButtonModule,
-    MatMenuModule
+    MatMenuModule,
+    MatCardModule
   ],
-  providers: [],
+  providers: [ShoppingListService, RecipeService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

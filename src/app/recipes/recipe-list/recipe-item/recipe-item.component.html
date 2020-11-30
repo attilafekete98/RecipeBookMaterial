@@ -1,0 +1,12 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{ recipe.name }}</mat-card-title>
+    <mat-card-title>
+      <img
+        [src]="recipe.imagePath"
+        alt="{{ recipe.name }}"
+        style="max-height: 50px; float: right">
+    </mat-card-title>
+    <mat-card-subtitle> {{ recipe.description }}</mat-card-subtitle>
+  </mat-card-header>
+</mat-card>

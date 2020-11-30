@@ -1,1 +1,6 @@
-<p>recipe-list works!</p>
+<button mat-raised-button color="primary">New Recipe</button>
+
+<app-recipe-item
+  *ngFor="let recipeEl of recipes; let i = index"
+  [recipe]="recipeEl"
+  [index]="i"></app-recipe-item>
