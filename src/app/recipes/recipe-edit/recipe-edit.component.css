@@ -1,0 +1,8 @@
+mat-form-field {
+  width: 95%;
+}
+
+::ng-deep .mat-card-header-text {
+  width: 100%;
+}
+
