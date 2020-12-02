@@ -1,5 +1,6 @@
 <button mat-raised-button color="primary" (click)="onNewRecipe()">New Recipe</button>
-
+<br>
+<br>
 <app-recipe-item
   *ngFor="let recipeEl of recipes; let i = index"
   [recipe]="recipeEl"

@@ -9,6 +9,7 @@
                  type="text"
                  id="name"
                  formControlName="name" required #nameInput>
+          <mat-error>Must not be empty!</mat-error>
         </mat-form-field>
       </mat-card-title>
       <mat-card-title>
@@ -19,6 +20,7 @@
                  id="imagePath"
                  formControlName="imagePath"
                  required #imagePath>
+          <mat-error>Must not be empty!</mat-error>
         </mat-form-field>
       </mat-card-title>
     </mat-card-header>
@@ -30,12 +32,12 @@
     <mat-card-content>
       <mat-form-field>
         <mat-label>Description</mat-label>
-        <textarea matInput
+        <input matInput
                   type="text"
                   id="description"
                   formControlName="description"
-                  rows="10"
-                  required></textarea>
+                  required>
+        <mat-error>Must not be empty!</mat-error>
       </mat-form-field>
       <div formArrayName="ingredients">
         <mat-list>
@@ -50,6 +52,7 @@
                          type="text"
                          formControlName="name"
                          required>
+                  <mat-error>Must not be empty!</mat-error>
                 </mat-form-field>
               </div>
               <div fxFlex="20">
@@ -59,13 +62,14 @@
                          type="number"
                          formControlName="amount"
                          required>
+                  <mat-error>Must be greater than 0!</mat-error>
                 </mat-form-field>
               </div>
               <div fxFlex="10">
-                <button mat-flat-button
+                <button mat-icon-button
                         type="button"
                         (click)="onDeleteIngredient(i)"
-                        color="warn">X
+                        color="warn" class="delete-button"><mat-icon>delete</mat-icon>
                 </button>
               </div>
             </div>

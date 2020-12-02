@@ -1,7 +1,15 @@
-.right {
-  float: right;
+mat-card {
+  border: black 1px solid;
+  margin: 2px;
 }
-
+::ng-deep .mat-card-header-text {
+  width: 100%;
+}
+.active {
+  background-color: #686868;
+}
 a {
+  color:inherit;
+  text-decoration: none;
   cursor: pointer;
 }
