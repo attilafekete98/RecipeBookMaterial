@@ -1,5 +1,6 @@
 <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
   <mat-card>
+
     <mat-card-header>
       <mat-card-title>
         <mat-form-field>
@@ -21,9 +22,11 @@
         </mat-form-field>
       </mat-card-title>
     </mat-card-header>
+
     <img mat-card-image
          [src]="imagePath.value"
          alt="{{ nameInput.value }}">
+
     <mat-card-content>
       <mat-form-field>
         <mat-label>Description</mat-label>
@@ -34,14 +37,6 @@
                   rows="10"
                   required></textarea>
       </mat-form-field>
-      <!--<mat-list>
-        <mat-list-item
-          *ngFor="let ingredientCtrl of controls; let i = index"
-          [formGroupName]="i">
-          &lt;!&ndash;{{ ingredient.name }} - {{ ingredient.amount }}&ndash;&gt;
-        </mat-list-item>
-      </mat-list>-->
-
       <div formArrayName="ingredients">
         <mat-list>
           <mat-list-item
@@ -78,6 +73,7 @@
         </mat-list>
       </div>
     </mat-card-content>
+
     <mat-card-actions>
       <button mat-flat-button
               type="button"
@@ -95,36 +91,6 @@
               (click)="onCancel()">Cancel
       </button>
     </mat-card-actions>
+
   </mat-card>
 </form>
-
-<!--<form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
-  <button mat-flat-button color="primary"
-          type="submit"
-          class="btn btn-success"
-          [disabled]="!recipeForm.valid">Save
-  </button>
-  <button mat-flat-button color="warn"
-    type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
-
-  <div class="content" fxLayout="row" fxLayout.xs="column" fxFlexFill>
-    <mat-form-field appearance="fill">
-      <mat-label>Name</mat-label>
-      <input matInput
-        type="text"
-        id="name"
-        formControlName="name" required>
-    </mat-form-field>
-  </div>
-
-  <div class="content" fxLayout="row" fxLayout.xs="column" fxFlexFill>
-    <mat-form-field appearance="fill">
-      <mat-label>Image URL</mat-label>
-      <input matInput
-             type="text"
-             id="imagePath"
-             formControlName="imagePath"
-             #imagePath required>
-    </mat-form-field>
-  </div>
-</form>-->
