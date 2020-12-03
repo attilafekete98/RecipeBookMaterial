@@ -1,1 +1,38 @@
-<p>shopping-list works!</p>
+<div class="bounds">
+
+  <div class="content" fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlexFill>
+
+    <div fxFlex="19"></div>
+    <div fxFlex="62">
+
+      <button mat-raised-button color="primary" (click)="onAddItem()">New Ingredient</button>
+      <br>
+      <br>
+      <table mat-table [dataSource]="ingredients">
+
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Name</th>
+          <td mat-cell *matCellDef="let ingredient">{{ ingredient.name }}</td>
+        </ng-container>
+        <ng-container matColumnDef="amount">
+          <th mat-header-cell *matHeaderCellDef>Amount</th>
+          <td mat-cell *matCellDef="let ingredient">{{ ingredient.amount }}</td>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let ingredient; let i = index" class="actions-row">
+            <button mat-icon-button><mat-icon (click)="onEditItem(i)">edit</mat-icon></button>
+            <button mat-icon-button><mat-icon (click)="onDeleteItem(i)">delete</mat-icon></button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columnHeaders"></tr>
+        <tr mat-row *matRowDef="let row; columns:columnHeaders"></tr>
+      </table>
+
+    </div>
+    <div fxFlex="19"></div>
+
+  </div>
+
+</div>

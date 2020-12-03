@@ -24,6 +24,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,8 @@ import { MatIconModule } from '@angular/material/icon';
     RecipeEditComponent,
     RecipeStartComponent,
     HeaderComponent,
-    RecipeItemComponent
+    RecipeItemComponent,
+    ShoppingEditComponent
   ],
   imports: [
     BrowserModule,
@@ -51,6 +55,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
+    MatTableModule,
+    MatDialogModule,
     ReactiveFormsModule
   ],
   providers: [ShoppingListService, RecipeService],
