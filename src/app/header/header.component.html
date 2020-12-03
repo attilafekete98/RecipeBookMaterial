@@ -5,7 +5,7 @@
   <span class = "filler"></span>
   <button mat-button class="link" [mat-menu-trigger-for]="manageMenu">Manage</button>
   <mat-menu #manageMenu>
-    <button mat-menu-item>Save data</button>
-    <button mat-menu-item>Fetch data</button>
+    <button mat-menu-item (click)="onSaveData()">Save data</button>
+    <button mat-menu-item (click)="onFetchData()">Fetch data</button>
   </mat-menu>
 </mat-toolbar>
