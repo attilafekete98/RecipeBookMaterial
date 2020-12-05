@@ -30,12 +30,24 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
   }
 
   onAddItem(): void {
-    this.editDialog.open(ShoppingEditComponent);
+    this.editDialog.open(ShoppingEditComponent, {
+      data: {
+        editMode: false,
+        editedIngredientIndex: -1,
+        ingredient: new Ingredient('', null)
+      }
+    });
   }
 
   onEditItem(index: number): void {
     this.slService.startedEditing.next(index);
-    this.editDialog.open(ShoppingEditComponent);
+    this.editDialog.open(ShoppingEditComponent, {
+      data: {
+        editMode: true,
+        editedIngredientIndex: index,
+        ingredient: this.slService.getIngredient(index)
+      }
+    });
   }
 
   onDeleteItem(index: number): void {
