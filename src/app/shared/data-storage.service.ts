@@ -3,18 +3,20 @@ import { HttpClient } from '@angular/common/http';
 import { RecipeService } from '../recipes/recipe.service';
 import { Recipe } from '../recipes/recipe.model';
 import { map, tap } from 'rxjs/operators';
+import { NotificationService } from './notification.service';
 
 @Injectable({ providedIn: 'root' })
 export class DataStorageService {
 
-  constructor(private http: HttpClient, private recipeService: RecipeService) {
+  constructor(private http: HttpClient, private recipeService: RecipeService, private notificationService: NotificationService) {
   }
 
   storeRecipes(): void {
     const recipes = this.recipeService.getRecipes();
     this.http.put('https://angular-tutorial-491d2.firebaseio.com/recipes.json', recipes)
       .subscribe(response => {
-      });
+        this.notificationService.openSuccess('Store successful', 'Close', 2500);
+      }, () => this.notificationService.openError('Store unsuccessful', 'close', 2500));
   }
 
   fetchRecipes() {

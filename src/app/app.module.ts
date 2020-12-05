@@ -28,6 +28,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { MatTableModule } from '@angular/material/table';
     MatIconModule,
     MatTableModule,
     MatDialogModule,
+    MatSnackBarModule,
     ReactiveFormsModule
   ],
   providers: [ShoppingListService, RecipeService],
