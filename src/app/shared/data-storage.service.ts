@@ -1,29 +1,34 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { RecipeService } from '../recipes/recipe.service';
-import { Recipe } from '../recipes/recipe.model';
 import { map, tap } from 'rxjs/operators';
-import { NotificationService } from './notification.service';
+
+import { Recipe } from '../recipes/recipe.model';
+import { RecipeService } from '../recipes/recipe.service';
 
 @Injectable({ providedIn: 'root' })
 export class DataStorageService {
-
-  constructor(private http: HttpClient, private recipeService: RecipeService, private notificationService: NotificationService) {
+  constructor(
+    private http: HttpClient,
+    private recipeService: RecipeService,
+  ) {
   }
 
-  storeRecipes(): void {
+  storeRecipes() {
     const recipes = this.recipeService.getRecipes();
     this.http.put('https://angular-tutorial-491d2.firebaseio.com/recipes.json', recipes)
       .subscribe(response => {
-        this.notificationService.openSuccess('Store successful', 'Close', 2500);
-      }, () => this.notificationService.openError('Store unsuccessful', 'close', 2500));
+        console.log(response);
+      });
   }
 
   fetchRecipes() {
     return this.http.get<Recipe[]>('https://angular-tutorial-491d2.firebaseio.com/recipes.json')
       .pipe(map(recipes => {
           return recipes.map(recipe => {
-            return { ...recipe, ingredients: recipe.ingredients ? recipe.ingredients : [] };
+            return {
+              ...recipe,
+              ingredients: recipe.ingredients ? recipe.ingredients : []
+            };
           });
         }),
         tap(recipes => {

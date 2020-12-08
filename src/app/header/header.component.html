@@ -1,9 +1,11 @@
 <mat-toolbar color="primary" class="navbar">
   <span class = "gap link" routerLink="/">Recipe Book</span>
-  <button mat-button routerLink="/recipes" class="gap link">Recipes</button>
+  <button mat-button routerLink="/recipes" class="gap link" *ngIf="isAuthenticated">Recipes</button>
+  <button mat-button routerLink="/auth" class="link" *ngIf="!isAuthenticated">Authenticate</button>
   <button mat-button routerLink="/shopping-list" class="link">Shopping list</button>
   <span class = "filler"></span>
-  <button mat-button class="link" [mat-menu-trigger-for]="manageMenu">Manage</button>
+  <button mat-button class="link" (click)="onLogout()" *ngIf="isAuthenticated">Logout</button>
+  <button mat-button class="link" [mat-menu-trigger-for]="manageMenu" *ngIf="isAuthenticated">Manage</button>
   <mat-menu #manageMenu>
     <button mat-menu-item (click)="onSaveData()">Save data</button>
     <button mat-menu-item (click)="onFetchData()">Fetch data</button>

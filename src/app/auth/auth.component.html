@@ -1,0 +1,69 @@
+<div class="bounds">
+
+  <div *ngIf="isLoading" style="text-align: center;">
+    <app-loading-spinner></app-loading-spinner>
+  </div>
+
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" *ngIf="!isLoading">
+    <div class="content" fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlexFill>
+
+      <div fxFlex="19"></div>
+      <div fxFlex="62">
+
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input matInput
+                 type="email"
+                 id="email"
+                 formControlName="email">
+          <mat-error>Must be valid email address</mat-error>
+        </mat-form-field>
+
+      </div>
+      <div fxFlex="19"></div>
+
+    </div>
+    <div class="content" fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlexFill>
+
+      <div fxFlex="19"></div>
+      <div fxFlex="62">
+
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input matInput
+                 type="password"
+                 id="password"
+                 formControlName="password">
+          <mat-error>Must be 6 or more characters long</mat-error>
+        </mat-form-field>
+
+      </div>
+      <div fxFlex="19"></div>
+
+    </div>
+    <div class="content" fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlexFill>
+
+      <div fxFlex="19"></div>
+      <div fxFlex="62">
+
+        <button mat-flat-button
+                color="primary"
+                type="submit"
+                [disabled]="!loginForm.valid">
+          {{ isLoginMode ? 'Login' : 'Sign Up' }}
+        </button>
+        |
+        <button mat-flat-button
+                color="primary"
+                type="button"
+                (click)="onSwitchMode()">
+          Switch to {{ isLoginMode ? 'Sign Up' : 'Login' }}
+        </button>
+
+      </div>
+      <div fxFlex="19"></div>
+
+    </div>
+  </form>
+
+</div>
